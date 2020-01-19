@@ -53,7 +53,7 @@ int main()
       Measure();
       Accumulate(); //Update block averages
       if(istep%10 == 0){
-        ConfXYZ(nconf);//Write actual configuration in XYZ format //Commented to avoid "filesystem full"! 
+        //ConfXYZ(nconf);//Write actual configuration in XYZ format //Commented to avoid "filesystem full"!
         nconf += 1;
       }
     }
