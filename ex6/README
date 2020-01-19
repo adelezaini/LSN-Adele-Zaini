@@ -1,0 +1,31 @@
+
+
+1) --------------------CHANGES FROM THE ORIGINAL FOLDER:----------------------
+
+- input.dat: contains all the parameters needed to start the simulation (temperature, #spin, ..., #steps, #blocks... ), it has been improved with a 'restart' and 'equi' options (at the bottom) in order to continue the simulation from the previous configuration and to automatically equilibrate the system. The two tasks can be operated changing their value between 1 (mode on --> restart/equi) and 0 (mode off --> no restart/equi).
+
+- output.*.0 files: contain the mean values of each observable with uncertainties (i.e. results of data blocking method). They are **draft files** that changes in each iteration of the temperature variable.
+
+- Metropolis/Gibbs folder: contains the results of the experiment in the output file name: output.*.temp
+
+- Equilibration folder: contains data used to equilibrate the system.
+
+
+
+2) --------------------------SYSTEM EQUILIBRATION:-----------------------------
+
+You can automatically and easily equilibrate the system through the 'equi' option in the input file. In alternative it is also possible to operate manually as follows:
+
+0. Run -bash clean.sh-: delete previous configuration and output data;
+
+1. Before running -./Monte_Carlo_ISING_1D.exe–, ensure to set restart to 0, otherwise it gives an error message and exits the program: start from initial configuration.
+
+2. Change restart to 1: start from previous configuration. 
+
+3. Run -./Monte_Carlo.exe–.
+
+4. Repeat this last move until the observables do not have a stable trend line in functions of the MC steps.
+
+5. Run -bash clean.sh-.
+
+Now the program is ready for the real simulation!

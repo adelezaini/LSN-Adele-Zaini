@@ -1,0 +1,17 @@
+0
+3.5
+30
+5000
+Uniform
+1.0
+0.8
+1
+
+  ReadInput >> x0; 
+  ReadInput >> delta; 
+  ReadInput >> nblock; 
+  ReadInput >> nstep; //per block (L) 
+  ReadInput >> transition; 
+  ReadInput >> mu;
+  ReadInput >> sigma;
+  ReadInput >> equi;

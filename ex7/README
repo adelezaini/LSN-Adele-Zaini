@@ -1,0 +1,9 @@
+
+
+--------------------FILES ORGANISATION:----------------------
+
+All the files are very similar to ex4 (config.0,config.final, frames...), but I created a folder for each phase: "solid", "liquid", "gas", where the respective input and output files are stored.
+New folders are:
+ – Equilibration: where examples of instantaneous values are stored to evaluate the parameters for the first equilibration phase (N_equi);
+ - Instant: instantaneous values (10^5 for each file) are saved in this folder for ex7.1 (evaluation of the autocorrelation function and the statistical error)
+ - NVE: contains a copy of the code used in ex4, but improved according to the ex7.3; a Jupyter Notebook ("Create&Equilibrate.ipynb") has been added at this folder in order to quickly menage the equilibration for this code.

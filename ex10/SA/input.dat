@@ -1,0 +1,14 @@
+30
+Square
+20
+0.90
+100
+10000
+
+
+  ReadInput >> ncities; 
+  ReadInput >> config; 
+  ReadInput >> temp; 
+  ReadInput >> t_rate;
+  ReadInput >> tstep;
+  ReadInput >> nstep;

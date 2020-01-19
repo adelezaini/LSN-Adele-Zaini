@@ -1,0 +1,23 @@
+
+--------------------FILE ORGANISATION:----------------------
+
+- Jupyter Notebook is in folder "ex8-2"
+
+
+- ex8-2 folder: contains the code , the executable and all the input and output files of exercise 8.1 and 8.2:
+
+	• input.dat: usual structure, with new parameters: mu and sigma
+
+	• Energy.0.out, Position.0.out: output files of the program execution
+
+	• Energy.min, Position.min: output files of the Python script; they contain the data refered to the minimized energy and optimized wave function.
+
+	• ex8-1 folder: example of execution of the first exercise with mu and sigma not yet optimized.
+
+
+- QMC_1D folder (new elements):
+	• Optimized input.dat folder: input.dat with simulation parameters optimised to get the acceptance rate ~0.5, when changing the external potential
+
+	• 1) Costant and Gaussians folders: IPGS results with the two different trial wave functions
+	• 2) ImaginaryTime folder: IPGS results varying imaginary time propagation parameter
+	• 3) PIMC folder: PIMC data varying temperature as input parameter

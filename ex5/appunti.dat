@@ -1,0 +1,80 @@
+Dovrei mettere uno script in python che lo fa girare automaticamente con 2p/1s e Unifrom/Gauss variando ogni volta il delta.
+
+Altrimenti devo farlo io a mano perché ho cambiato certe cosucce e mi mancano dei casi
+
+
+
+
+
+
+per capire quali valori da cui partire per la simulazione(origine) impostato gia parametri ottimizzati (delta=1.22, M=1000) e impostando 10,10,10 ho provato tutti.
+come atteso le posizioni si portano verso il massimo di probabilità: è evidente da 1s, mentre proprio il fatto che il 2p ha due massimi, la posizione continua a oscillare tra i due (molto piu marcata nella gaussiana, mentre in uniforme si vede che 1000 passi non sono sufficienti per farle cambiare massimo)
+puo essere una buona scelta mettersi per x,y comunque intorno allo zero, mentre per z uno dei due massimi.
+Per scegliere con un po' piu di dettaglio ho cercato varie combinazioni di x,y,z iniziali calcolando il valore medio dopo una fase di equilibrazione sono arrivata a circa (0.5,0.5,3) (anche no eeeeeh: (0,0,4)). Mentre per 1s (0,0,0).
+Qui sotto sono riportati ri sultati partendo da (10,10,10).
+Con la scelta di ordine 10 dell'inizio ho scelto 150 passi, provando con valori minori per questo nella fase di equilibrazione ho scelto un numero di passi di equilibrazione dipendente dal valore iniziale raggiunto
+
+**Note:** the acceptance rate can depend on both choises of the starting point and of the time step. So I calibrated the time step on 1s starting from the axis origin to be sure to have little dependence of the accurance rate variantion from the starting point. 
+
+in unita
+vedi ultimi appunti
+fai commento che c'era prima
+commenta e titola graficini carini delle distribuzioni
+mettere anche obiettivo dell'esercizio
+mettere parametri che hai scelto
+
+- Equilibrazione
+- grafico con confronto tra due distribuzioni
+- grafico in cui mostro che parto da lontano
+- 3D
+- tutto cartesiano
+- si sceglie metropolis come altro metodo MonteCarlo (rispetto a cumulativa come visto prec o importance sempling)
+
+READ ME:
+    -0 -> uniforme (default)
+    
+//se ci sono errori vedi se variabili inizializzate bene
+//ricordati di equilibrare il sistema
+//se errori controlla che effettivamente hai rispettato tutti i numerini dei vettori, vettori x,y...
+//se errori nella funzione wf 210
+//ricordati iprint: cambia di un odg!
+//ricordati confxyz
+//cambia mb
+//prova le due funzioni di errore
+
+
+
+
+fig=plt.figure(figsize=(12, 12))
+
+x,y,z = np.loadtxt("Gaussian/Origin/Positions_2p.out", usecols=(0,1,2), unpack=True, max_rows = 1000)
+xm, ym, zm=np.loadtxt("Gaussian/Origin/Positions_2p.out", usecols=(0,1,2), unpack=True, skiprows=150, max_rows = 1000)
+
+plt.suptitle("Temperature", size='large', color='crimson')
+plt.subplot(311)
+plt.plot(x, color='crimson')
+plt.title('Instant value')
+plt.hlines(np.mean(xm), 0, 450, color='midnightblue')
+plt.xlabel('# measurements')
+plt.ylabel('T*')
+plt.grid(True) 
+
+plt.subplot(312)
+plt.plot(y, color='crimson')
+plt.title('Instant value')
+plt.hlines(np.mean(ym), 0, 450, color='midnightblue')
+plt.xlabel('# measurements')
+plt.ylabel('T*') 
+plt.grid(True)
+
+plt.subplot(313)
+plt.plot(z, color='crimson')
+plt.title('Instant value')
+plt.hlines(np.mean(zm), 0, 450, color='midnightblue')
+plt.xlabel('# measurements')
+plt.ylabel('T*')
+plt.grid(True) 
+
+print (np.mean(xm))
+print (np.mean(ym))
+print (np.mean(zm))

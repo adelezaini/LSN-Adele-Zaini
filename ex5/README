@@ -1,0 +1,12 @@
+
+The present folder is organised very similarly to the Molecular Dynamic one:
+
+- input.dat: contains all the parameters of the simulation, that can be changed manually without modifying each time the program and then create its executable. The parameters are:
+	- orbital: 1s or 2p;
+	- starting position (x0,y0,z0);
+	- time step;
+	- number of steps;
+	- number of blocks;
+	- transition probability: Uniform or Gaussian;
+
+- Uniform/Gaussian folders: contain the respective results for the positions of the random walk and the mean radius evaluated with data blocking, for each 1s and 2p orbital. They contain also a folder named "Origin" with data used to choose an accurate starting point (as explained in the Jupyter Notebook). 

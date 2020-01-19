@@ -1,0 +1,17 @@
+2p
+0
+0
+4
+2.975
+1000000
+200
+Uniform
+
+	ReadInput >> orbital;
+	ReadInput >> x0
+ 	ReadInput >> y0;
+ 	ReadInput >> z0;
+	ReadInput >> delta;
+  	ReadInput >> nstep;
+  	ReadInput >> nblock;
+	ReadInput >> transition;

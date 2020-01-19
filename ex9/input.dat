@@ -1,0 +1,14 @@
+30
+Square
+900
+300
+0.55
+0.09
+
+
+  ReadInput >> ncities; 
+  ReadInput >> config; 
+  ReadInput >> npop; 
+  ReadInput >> ngeneration;
+  ReadInput >> Pc; 
+  ReadInput >> Pm;

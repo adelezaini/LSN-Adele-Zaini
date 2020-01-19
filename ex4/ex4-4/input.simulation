@@ -1,0 +1,18 @@
+Kripton
+gas
+1
+1
+
+0.0005
+10000
+50
+1000
+
+  ReadInput >> element; 
+  ReadInput >> phase; 
+  ReadInput >> restart; 
+  ReadInput >> rescale; 
+  ReadInput >> delta; 
+  ReadInput >> nstep; 
+ ReadInput >> nblock; 
+ ReadInput >> iprint;

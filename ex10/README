@@ -1,0 +1,8 @@
+
+–––––––––––––––––––––––––––– FILE ORGANISATION ––––––––––––––––––––––––––––
+ 
+The files are organised in the same way of the GA exercise, in each folder SA (=Simulated Annealing) and PT (Parallel Tempering), except for:
+
+- the main.cpp and input.dat ares different,
+- population.cpp has been removed
+- PT/Circonference and PT/Square contain results of each node and the 'bestest' one.

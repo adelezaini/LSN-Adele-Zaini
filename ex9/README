@@ -1,0 +1,29 @@
+
+–––––––––––––––––––––––––––– GENETIC ALGORITHM –––––––––––––––––––––––––––––
+
+The idea of the GA is taking into count a first group of individuals (i.e. "population") and leave them breed applying some filters in order to simulate the "natural selection" theorised by Darwin. What differences an individual from another is the arrangement of the genes, called chromosome. Each individual is characterised by its chromosome.
+
+
+We are asked to simulate the Travel Salesman Problem: given n cities, which is the best tour that visits all the cities and get back to the initial one? So in order to adapt this case to the GA we need to consider:
+
+ – Gene=city in position (x_i, y_i)
+ – Individual/Chromosome=tour of n cities 
+ – Population= group of m tours
+
+
+In order to implement this idea I created:
+
+ – struct point -> to locate each city and keeping this information together (rather than in two different variables)
+
+ - class Tour -> basically it's a vector of integers (i.e. index of cities) with all functions needed to mutate its 'gene sequence' (e.g. Permutation(), Swap()....) as each class Individual would be expected to have, plus some options linked to its property of being a 'tour of city' and so how to evaluate the cost function (i.e. 'square lenght' L^(2) of the tour). So when creating the object Tour, the position of cities is needed.
+
+ - class Population -> it is a vector of Tour with methods used to make the population evolve: Selection(), Crossover(), Mutation(), Offspring()...
+
+
+–––––––––––––––––––––––––––– FILE ORGANISATION ––––––––––––––––––––––––––––
+ 
+• You can find all the declarations in the header file TSP.h, while the definitions are in the respective files: tour.cpp, population.cpp.
+
+• input.dat: contains all the parameters for the TSP (#cities, configuration of cities,#individuals in each population, # generations, probability of crossover and probability of mutation) that can be set from the external in order not to re-create the executable each time.
+
+• folder "Circonference" and "Square": contains the respective results for the positions of cities (=initial tour), best lenght in function of generations, (final) best tour.

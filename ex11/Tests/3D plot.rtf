@@ -1,0 +1,49 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 # generate training inputs and validation inputs\
+# now all 2 variables!\
+np.random.seed(0)\
+\
+xy_train=np.zeros((n_train,2))\
+xy_train[:,0]=np.random.uniform(low, high, n_train) \
+xy_train[:,1]=np.random.uniform(low, high, n_train)\
+\
+xy_valid=np.zeros((n_valid,2))\
+xy_valid[:,0]=np.random.uniform(low, high, n_valid) \
+xy_valid[:,1]=np.random.uniform(low, high, n_valid)\
+#x_valid.sort()\
+z_target=f(xy_valid[:,0],xy_valid[:,1]) \
+\
+# actual measures from which we want to guess regression parameters\
+z_train= np.random.normal(f(xy_train[:,0], xy_train[:,1]), sigma) \
+z_valid= np.random.normal(f(xy_valid[:,0], xy_valid[:,1]), sigma)\
+\
+#3D representation\
+#X = np.arange(low, high, 0.1)\
+#Y = np.arange(low, high, 0.1)\
+#X, Y = np.meshgrid(X, Y)\
+X = np.copy(xy_valid[:,0])\
+Y = np.copy(xy_valid[:,1])\
+X.sort()\
+Y.sort()\
+X, Y = np.meshgrid(X,Y)\
+#X, Y= np.meshgrid(xy_valid[:,0], xy_valid[:,1])\
+Z=f(X,Y)\
+\
+fig = plt.figure(figsize=(10, 8))\
+ax = Axes3D(fig)\
+\
+#plt.plot(xy_valid[:,0], xy_valid[:,1], z_target, color='midnightblue', label="Target")\
+ax.scatter(xy_valid[:,0], xy_valid[:,1], z_valid, c=z_valid, cmap='winter', label='Test')\
+#ax.plot_surface(X, Y, Z,cmap='inferno',linewidth=0, antialiased=False, alpha=0.05)\
+ax.plot_surface(X, Y ,Z, cmap='GnBu', linewidth=0, antialiased=True, alpha=0.7)\
+\
+ax.set_xlabel('x')\
+ax.set_ylabel('y')\
+ax.legend()\
+plt.show()}

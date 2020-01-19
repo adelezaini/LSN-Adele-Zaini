@@ -1,0 +1,53 @@
+
+NOTE: going back to these exercises I added a Jupyter Notebook ("Equilibrate.ipynb") in each folder in order to quickly run the equilibration phase.
+
+NOTE: the improved code for ex7 it is located in "ex7/NVE".
+
+
+1) --------------------CHANGES FROM THE ORIGINAL FOLDER:----------------------
+
+- the Makefile has new commands: 
+  • make clean: rm *.o seed.out old.0 old.final config.final
+  • make clean.all: rm *.o MolDyn_NVE.exe seed.out old.0 old.final config.final
+		    bash clean.sh
+
+***************************************************************************
+	In ex4-3: MD code suitable for working in LJ units
+***************************************************************************
+
+- input.dat: contains all the parameters needed to start the simulation (temperature*, #particles, ..., #steps, #blocks... ), it has been improved with a 'restart' and 'rescale' option (at the top) in order to continue the simulation from the previous configurations while rescaling velocities. The two tasks can be operated changing their value between 1 (mode on --> restart and/or rescale) and 0 (mode off --> no restart and/or no rescale).
+
+- old.0, old.final: last two configurations of a simulation, they are the input files for restarting next simulation.
+
+
+***************************************************************************
+	In ex4-4: MD code improved to simulate real cases
+***************************************************************************
+
+- input.simulation: contains the parameters to control the simulation from the input file (restart, rescale, #steps...).
+
+- input.liquid/input.solid/input.gas: contain the parameters characteristic of the phase in LJ units (rho*,temperature*...)
+
+- Argon/Kripton folder:
+	- input.element: contains all the characteristic parameters to rescale quantities to SI units in LJ model (sigma, epsilon/kb, mass)
+	- Liquid, Gas, Solid folders: contain the outputs of relative phase in SI units
+
+- Liquid, Gas, Solid folders: contain the outputs of relative phase in LJ units
+
+
+
+2) --------------------STEPS TO MANUALLY EQUILIBRATE THE SYSTEM:----------------------
+
+0. Run -make clean- and -bash clean.sh-: delete previous configurations and output data (-make clean.all- to delete also the executable if it is necessary);
+
+1. Before running -./MolDyn_NVE.exe–, ensure to set restart and rescale to 0, otherwise it gives an error message and exits the program: start from initial configuration and velocities randomly evaluated. Another move is suggested: setting the step to 1000 to accelerate the process of equilibration;
+
+2. Change both restart and rescale to 1 (actually just rescale is sufficient): start from previous configurations and rescale velocities. 
+
+3. Run -./MolDyn_NVE.exe–.
+
+4. Repeat this last move for at least 4/5 times.
+
+5. Run -bash clean.sh- and change number of steps to >= 10000.
+
+Now the program is ready for the real simulation!
